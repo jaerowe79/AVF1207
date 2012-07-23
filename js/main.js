@@ -1,49 +1,38 @@
 //AVF1207 
 //Janis Jae Rowe
 
-// geolocation button click
-    $('#geo').click(function () {
-        // test for presence of geolocation
-        if (navigator && navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(geo_success, geo_error);
-        } else {
-            error('Geolocation is not supported.');
-        }
-    });
- 
-function geo_success(position) {
-    printLatLong(position.coords.latitude, position.coords.longitude);
-    
-}
-
-// The PositionError object returned contains the following attributes:
-// code: a numeric response code
-// PERMISSION_DENIED = 1
-// POSITION_UNAVAILABLE = 2
-// TIMEOUT = 3
-// message: Primarily for debugging. It's recommended not to show this error
-// to users.
-function geo_error(err) {
-    if (err.code == 1) {
-        error('The user denied the request for location information.');
-    } else if (err.code == 2) {
-        error('Your location information is unavailable.');
-    } else if (err.code == 3) {
-        error('The request to get your location timed out.');
-    } else {
-        error('An unknown error occurred while requesting your location.');
-    }
-}
 
 
-// output lat and long
-function printLatLong(lat, long) {
-    alert('You are at Latitude: ' + lat + ' and Longitude: ' + long);
+//*********************************************************************
+// GEOLOCATION
+//*********************************************************************
+$('#geolocationPage').live('pageshow', function(event, ui){
+
+    // Uncomment For Debugging
+    // alert("GEOLOCATION PAGE IS READY!");
+});
+
+var geoOnSuccess = function(position) {
+    var geolocationDiv = $('#geolocationDiv');
+    geolocationDiv.append( 'Latitude: ' + position.coords.latitude + '<br />' +
+        'Longitude: '          + position.coords.longitude             + '<br />' +
+        'Altitude: '           + position.coords.altitude              + '<br />' +
+        'Accuracy: '           + position.coords.accuracy              + '<br />' +
+        'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+        'Heading: '            + position.coords.heading               + '<br />' +
+        'Speed: '              + position.coords.speed                 + '<br />' +
+        'Timestamp: '          + new Date(position.timestamp)          + '<br />' +
+        '<hr>');
+};
+
+var geoOnError = function(error) {
+    alert('code: ' + error.code    + '\n' +
+        'message: ' + error.message + '\n');
 }
- 
-function error(msg) {
-    alert(msg);
-}
+
+$('#geolocationBtn').live('click', function(){
+    navigator.geolocation.getCurrentPosition(geoOnSuccess, geoOnError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
+});
 
 //*********************************************************************
 // CAMERA/PHOTOS
@@ -244,4 +233,23 @@ $('#createContact').live('click', function() {
         myContact.save(newContactSuccess, newContactError);
     }
  });
+
+//*********************************************************************
+// NOTIFICATIONS
+//*********************************************************************
+var notificationBtn = $('#notification');
+
+notificationBtn.live('click', function(){
+    function alertDismissed() {
+        // do nothing
+        console.log("Dismissed");
+    }
+
+    navigator.notification.alert(
+        'You are the winner!',  // message
+        alertDismissed(),       // callback
+        'Game Over',            // title
+        'Done'                  // buttonName
+    );
+});
 
