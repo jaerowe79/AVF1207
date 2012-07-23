@@ -1,0 +1,54 @@
+<!-- Janis Jae Rowe -->
+<!-- AVF 1207 -->
+<! June 24, 2012 -->
+
+
+<!doctype html> 
+
+ 
+<html lang="en">
+<head>  
+    <title>Launchpage</title>  
+    <!-- <meta name="MobileOptimized" content="320" /> -->
+		  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta charset="utf-8">
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+		
+		  <!-- StyleSheets under here -->
+  <link href="css/jquery.mobile-1.1.0.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" media="all and (max-device-width: 480px)" href="css/iphone.css"> 
+  <link rel="stylesheet" media="all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" href="css/ipad-portrait.css"> 
+  <link rel="stylesheet" media="all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" href="css/ipad-landscape.css"> 
+  <link rel="stylesheet" media="all and (min-device-width: 1025px)" href="css/ipad-landscape.css"> 
+  <link href="css/video.css" rel="stylesheet">       
+  <link rel="stylesheet" href="styles.css"/>
+  <!-- JavaScript under here -->
+	<script type="text/javascript" charset="utf-8" src="js/cordova-1.8.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.1.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/video.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+</head>  
+<body> 
+<div data-role="page" data-add-back-btn="true" id="photoPage">
+
+    <div data-role="header">
+        <h1>AVF Demo</h1>
+    </div>
+   <!-- /header -->
+
+    <div data-role="content">
+        <button id="capturePhoto">Capture Photo</button>
+        <button id="capturePhotoEdit">Capture Editable Photo</button>
+        <button id="getPhotoLibrary">Photo Library</button>
+        <button id="getPhotoAlbum">Photo Album</button>
+        <img id="smallImage" src="" />
+        <img id="largeImage" src="" />
+    </div>
+
+</div>
+
+</body>  
+</html> 

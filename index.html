@@ -1,0 +1,122 @@
+<!-- Janis Jae Rowe -->
+<!-- AVF 1207 -->
+<! June 24, 2012 -->
+
+
+<!doctype html> 
+
+ 
+<html lang="en">
+<head>  
+    <title>Launchpage</title>  
+    <!-- <meta name="MobileOptimized" content="320" /> -->
+		  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta charset="utf-8">
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+		
+		  <!-- StyleSheets under here -->
+  <link href="css/jquery.mobile-1.1.0.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" media="all and (max-device-width: 480px)" href="css/iphone.css"> 
+  <link rel="stylesheet" media="all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" href="css/ipad-portrait.css"> 
+  <link rel="stylesheet" media="all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" href="css/ipad-landscape.css"> 
+  <link rel="stylesheet" media="all and (min-device-width: 1025px)" href="css/ipad-landscape.css"> 
+  <link href="css/video.css" rel="stylesheet">       
+  <link rel="stylesheet" href="styles.css"/>
+  
+  <!-- JavaScript under here -->
+    <script type="text/javascript" charset="utf-8" src="js/cordova-1.8.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.1.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/video.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+   <script type="text/javascript">
+      
+      function onBodyLoad()
+      {		
+          document.addEventListener("deviceready", onDeviceReady, false);
+      }
+      
+      function onDeviceReady()
+      {
+          navigator.notification.alert("Hello")
+      }
+    </script>
+</head>  
+<body>  
+    <header>  
+        <h1>Launchpage</h1>  
+    </header>  
+    <nav>  
+        <!-- Navigation -->  
+    </nav>  
+    <section id="intro"> 
+    	 
+        <!-- Introduction -->  
+        <h2> AVF Demo </h2>
+            </section>  
+    <section>  
+        <!-- Main content area -->
+           <div id="crud">
+        <h3> CRUD Apps </h3>
+        <a href="http://jaerowe79.github.com/kidtracks1207/index.html"id="original" data-theme="a" data-role="button" data-inline="true" type="submit">Original</a><a href="http://jaerowe79.github.com/kidtracks1207/index.html"id="revised" data-theme="a" data-role="button" data-inline="true" type="submit">Revised</a>
+        </div>
+    </section> 
+    <div id="content">  
+    <div id="mainContent">  
+        <section>  
+          <div class="cta">
+              <video id="ctaVideo" class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" poster="images/play-video.png" onclick="this.play();">
+                <source src="videos/avf-demo.mp4" type='video/mp4'>
+                <source src="videos/avf-demo.WebM" type='video/webm'>
+              </video>
+            </div>
+       </div>
+  
+        </section>  
+        <section id="native1">  
+            <!-- Native Features -->
+            <h3>iOS/Android Native Feature Demos </h3>
+             <!-- <a href="#"id="Alert" data-theme="a" data-role="button" data-inline="true" type="submit">Alert</a> -->
+              <a href="#" id="geo" data-theme="a" data-role="button" data-inline="true" type="submit">Click for your location and Alert.</a></p>
+
+              <a href="#"id="Accelerometer" data-theme="a" data-role="button" data-inline="true" type="submit">Accelerometer</a>
+        </section>  
+         <section id="native2">  
+            <!-- Native Features -->
+            <h3>iOS or Android Native Feature Demos </h3>
+              <a href="contacts.html"id="Contacts" data-theme="a" data-role="button" data-inline="true" type="submit">Contacts</a>
+              <a href="#"id="Network" data-theme="a" data-role="button" data-inline="true" type="submit">Network</a>
+              <a href="#"id="Etc" data-theme="a" data-role="button" data-inline="true" type="submit">Etc...</a>
+        </section>
+        <section id="native3">
+        	<h3>iOS Feature Demo</h3>
+        	  <a href="photo.html"id="Camera" data-theme="a" data-role="button" data-inline="true" type="submit">Camera</a>
+        </section>
+    </div>  
+    <aside>  
+        <!-- Sidebar -->  
+			<h3>Research:</h3>
+			<a href="http://course.online.fullsail.edu/index.cfm?fuseaction=lms.activitiesDiscussion&activityId=779987&deliveryId=1563889" data-theme="a" data-role="button" data-inline="true" type="submit">Week One Discussion</a>
+			<a href="http://course.online.fullsail.edu/index.cfm?fuseaction=lms.activitiesDiscussion&activityId=779994&deliveryId=1563896" data-theme="a" data-role="button" data-inline="true" type="submit">Week Two Discussion</a>
+				<a href="http://course.online.fullsail.edu/index.cfm?fuseaction=lms.activitiesDiscussion&activityId=751858&deliveryId=1506922" data-theme="a" data-role="button" data-inline="true" type="submit">Week Three Discussion</a>
+		</br>
+		<div id="developer">
+		<ul>
+			<div><h3>Developer Info</h3>
+			<h5>Janis Jae Rowe</h5>
+			<h5>AVF 1207</h5></div>
+		</ul>
+		</div>
+
+    </aside>  
+</div>  
+    
+    <footer>  
+        <!-- Footer -->  
+    </footer>  
+
+
+</body>  
+</html> 
