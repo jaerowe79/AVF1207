@@ -9,7 +9,7 @@ var notificationBtn = $('#notification');
 
 notificationBtn.live('click', function(){
     function alertDismissed() {
-        // do nothing
+        // do nothing        
         console.log("Dismissed");
     }
     
@@ -19,7 +19,7 @@ notificationBtn.live('click', function(){
     'Game Over',            // title
     'Done'                  // buttonName
     );
-});
+ });
 
 // GEOLOCATION ***************************
 
