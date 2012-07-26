@@ -38,9 +38,26 @@
                                         
                                         function onDeviceReady()
                                         {
-                                            //navigator.notification.alert("Hello")
+                                           navigator.notification.alert("Hello")
                                         }
+                                         // alert dialog dismissed
+									    function alertDismissed() {
+									        // do something
+									    }
+									
+									    // Show a custom alert
+									    //
+									    function showAlert() {
+									        navigator.notification.alert(
+									            'You are the winner!',  // message
+									            alertDismissed,         // callback
+									            'Game Over',            // title
+									            'Done'                  // buttonName
+									        );
+									    }
                                         </script>
+                                                                           
+                     
     </head>  
     <body onload="onBodyLoad()">
         <div data-role="page">
@@ -60,8 +77,8 @@
                 
                 <div class="contentDiv">
                     <h3 class="titleText">CRUD Apps</h3>
-                    <a href="a href="jaerowe79.github.com/kidtracks1207/index.html"><div data-role="button">Original</div></a>
-                        <a href="a href="jaerowe79.github.com/kidtracks1207/index.html"><div data-role="button">Updated</div></a>
+                    <a href="http://jaerowe79.github.com/kidtracks1207/index.html"><div data-role="button">Original</div></a>
+                        <a href="http://jaerowe79.github.com/kidtracks1207/index.html"><div data-role="button">Updated</div></a>
                 </div>
                 
                 <div class="contentDiv">
