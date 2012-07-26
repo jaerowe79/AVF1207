@@ -2,19 +2,67 @@
 //Janis Jae Rowe
 
 
-//*********************************************************************
-// CAMERA/PHOTOS
-//*********************************************************************
+
+// NOTIFICATIONS *************************
+
+var notificationBtn = $('#notification');
+
+notificationBtn.live('click', function(){
+    function alertDismissed() {
+        // do nothing
+        console.log("Dismissed");
+    }
+    
+    navigator.notification.alert(
+    'You are the winner!',  // message
+    alertDismissed(),       // callback
+    'Game Over',            // title
+    'Done'                  // buttonName
+    );
+});
+
+// GEOLOCATION ***************************
+
+$('#geolocationPage').live('pageshow', function(event, ui){
+
+    // Uncomment For Debugging
+    // alert("GEOLOCATION PAGE IS READY!");
+});
+
+var geoOnSuccess = function(position) {
+    var geolocationDiv = $('#geolocationDiv');
+    geolocationDiv.append( 'Latitude: ' + position.coords.latitude + '<br />' +
+    'Longitude: '          + position.coords.longitude             + '<br />' +
+    'Altitude: '           + position.coords.altitude              + '<br />' +
+    'Accuracy: '           + position.coords.accuracy              + '<br />' +
+    'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+    'Heading: '            + position.coords.heading               + '<br />' +
+    'Speed: '              + position.coords.speed                 + '<br />' +
+    'Timestamp: '          + new Date(position.timestamp)          + '<br />' +
+    '<hr>');
+};
+
+var geoOnError = function(error) {
+    alert('code: ' + error.code    + '\n' +
+    'message: ' + error.message + '\n');
+}
+
+$('#geolocationBtn').live('click', function(){
+    navigator.geolocation.getCurrentPosition(geoOnSuccess, geoOnError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
+});
+
+// CAMERA/PHOTOS *******************************
+
 var pictureSource;
 var destinationType;
 
-$('#photoPage').live('pageshow', function(event, ui){
+$('#photoPage').live('pageshow', function (event, ui){
 
     // Uncomment For Debugging
     // alert("PHOTO PAGE IS READY!");
 
-    pictureSource=navigator.camera.PictureSourceType;
-    destinationType=navigator.camera.DestinationType;
+    pictureSource = navigator.camera.PictureSourceType;
+    destinationType = navigator.camera.DestinationType;
 });
 
 function onPhotoDataSuccess(imageData) {
@@ -54,22 +102,20 @@ var photosOnFail = function(message) {
     alert('Failed because: ' + message);
 }
 
-$("#capturePhoto")    .live('click', capturePhoto);
+$("#capturePhoto").live('click', capturePhoto);
 
 $("#capturePhotoEdit").live('click', capturePhotoEdit);
 
-$("#getPhotoLibrary") .live('click', function(){
+$("#getPhotoLibrary").live('click', function(){
     getPhoto(pictureSource.PHOTOLIBRARY);
 });
 
-$("#getPhotoAlbum")   .live('click', function(){
+$("#getPhotoAlbum").live('click', function(){
     getPhoto(pictureSource.SAVEDPHOTOALBUM);
 });
-//****************************************
 
-//*********************************************************************
-// CONTACTS
-//*********************************************************************
+// CONTACTS ***********************************
+
 var options;
 var fields = ["displayName", "name", "phoneNumbers"];
 var contactName;
@@ -156,6 +202,7 @@ $('#findContact').live('click', function() {
 });
 
 // STORE A CONTACT ***************************************
+
 var focusNewContactNameField = function(){
     newContactName.focus();
 }
@@ -202,72 +249,7 @@ $('#createContact').live('click', function() {
     }
  });
  
- //*********************************************************************
-// NOTIFICATIONS
-//*********************************************************************
-var notificationBtn = $('#notification');
 
-notificationBtn.live('click', function(){
-    function alertDismissed() {
-        // do nothing
-        console.log("Dismissed");
-    }
 
-    navigator.notification.alert(
-        'You are the winner!',  // message
-        alertDismissed(),       // callback
-        'Game Over',            // title
-        'Done'                  // buttonName
-    );
-});
 
-//*********************************************************************
-// NOTIFICATIONS
-//*********************************************************************
-var notificationBtn = $('#notification');
-
-notificationBtn.live('click', function(){
-    function alertDismissed() {
-        // do nothing
-        console.log("Dismissed");
-    }
-    
-    navigator.notification.alert(
-    'You are the winner!',  // message
-    alertDismissed(),       // callback
-    'Game Over',            // title
-    'Done'                  // buttonName
-    );
-});
-
-//*********************************************************************
-// GEOLOCATION
-//*********************************************************************
-$('#geolocationPage').live('pageshow', function(event, ui){
-
-    // Uncomment For Debugging
-    // alert("GEOLOCATION PAGE IS READY!");
-});
-
-var geoOnSuccess = function(position) {
-    var geolocationDiv = $('#geolocationDiv');
-    geolocationDiv.append( 'Latitude: ' + position.coords.latitude + '<br />' +
-    'Longitude: '          + position.coords.longitude             + '<br />' +
-    'Altitude: '           + position.coords.altitude              + '<br />' +
-    'Accuracy: '           + position.coords.accuracy              + '<br />' +
-    'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-    'Heading: '            + position.coords.heading               + '<br />' +
-    'Speed: '              + position.coords.speed                 + '<br />' +
-    'Timestamp: '          + new Date(position.timestamp)          + '<br />' +
-    '<hr>');
-};
-
-var geoOnError = function(error) {
-    alert('code: ' + error.code    + '\n' +
-    'message: ' + error.message + '\n');
-}
-
-$('#geolocationBtn').live('click', function(){
-    navigator.geolocation.getCurrentPosition(geoOnSuccess, geoOnError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
-});
 
