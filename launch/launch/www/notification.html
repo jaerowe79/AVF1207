@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>AVF Demo</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+
+    <link href="css/jquery.mobile-1.1.0.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" media="all and (max-device-width: 480px)" href="css/iphone.css">
+    <link rel="stylesheet" media="all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" href="css/ipad-portrait.css">
+    <link rel="stylesheet" media="all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" href="css/ipad-landscape.css">
+    <link rel="stylesheet" media="all and (min-device-width: 1025px)" href="css/ipad-landscape.css">
+    <link href="css/video.css" rel="stylesheet">
+    
+    <script>
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        // Empty
+    }
+
+    // Show a custom alert
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
+
+    // Beep three times
+    //
+    function playBeep() {
+        navigator.notification.beep(3);
+    }
+
+    // Vibrate for 2 seconds
+    //
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
+
+    </script>
+  </head>
+  <body>
+    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+    <p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
+    <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
+    
+              <!-- JavaScript under here -->
+            <script type="text/javascript" charset="utf-8" src="js/cordova-1.8.0.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/jquery-1.7.2.min.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.1.0.min.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/video.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/notification.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/geolocation.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/contacts.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/camera.js"></script>
+
+  </body>
+  
+  
+  
+  
+</html>
